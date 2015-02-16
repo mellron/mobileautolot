@@ -1,0 +1,80 @@
+.AutoLotDetail_label
+{
+    
+}
+.AutoLotDetail_value
+{
+    
+}
+.AutoLotDetail_header
+{
+   width:90%;
+   margin:auto auto auto auto;  
+}
+#AutoLotDetail_header1
+{
+    font-size: 20px;
+    font-weight:normal;
+    padding-top:6px;
+}
+#AutoLotDetail_header2
+{
+  padding-top:3px;
+}
+
+.AutoLotDetail_headerPrice
+{
+    font-size:18px;
+    color:#0a0a64;
+}
+.AutoLotDetail_headerMiles
+{
+   color:rgb(129, 110, 110);   
+}
+
+#AutoLotDetail_header1 span
+{
+    margin-right:5px;
+}
+
+#AutoLotDetail_BackToResults
+{
+    
+}
+#AutoLotDetail_PaymentCalc
+{
+    padding-bottom:4px;
+    padding-top:4px;
+}
+#AutoLotDetail_NewSearchCmd
+{
+    
+}
+
+.AutoLotDetail_Image
+{
+    width:90%;
+    margin: auto auto auto auto;
+    display:block;
+}
+
+#AutolotDetail_Data
+{
+   width:90%;
+   margin: auto auto auto auto;
+   display:block;
+}
+
+#AutoLotDetail_CalcImage
+{
+    width:17px;
+}
+
+.AutoLotDetail_PaymentsTitle
+{
+    color:rgb(58,58,200);
+    margin-left:6px;
+    vertical-align: text-top;
+    font-size:13px;
+    font-weight:bold;
+}

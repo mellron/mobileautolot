@@ -1,0 +1,161 @@
+ 
+<html class="ui-mobile">
+    <head>
+        <title>USBank Autolot Search</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale=1">
+        
+        
+        <link href="js/jquery/jquery.mobile-1.4.3.css" rel="stylesheet" type="text/css"/>   
+        <link href="css/AutoLotTheme.css" rel="stylesheet" type="text/css"/>  
+
+        <link href="js/jquery/jquery.mobile.structure-1.4.3.css" rel="stylesheet" type="text/css"/>   
+        
+        <link href="css/main.css" rel="stylesheet" type="text/css"/> 
+        <link href="css/AutoLotSearch.css" rel="stylesheet" type="text/css"/>
+        <link href="css/AutloLotSearchResults.css" rel="stylesheet" type="text/css"/>  
+        <link rel="stylesheet" href="css/AutoLotDetail.css" type="text/css">
+
+
+        
+        <script type="text/javascript" src="js/jquery/jquery-1.11.1.js"></script>  
+        <script type="text/javascript" src="js/jquery/jquery.mobile-1.4.3.js"></script>  
+        <script type="text/javascript" src="scripts/utility.js"></script>
+        <script type="text/javascript" src="scripts/classes/DBSearch.js"></script>     
+        <script type="text/javascript" src="scripts/classes/AutoLotDetailInfo.js"></script> 
+        <script type="text/javascript" src="scripts/classes/AutloLotSearchResults.js"></script> 
+        <script type="text/javascript" src="scripts/classes/AutoLotSearch.js"></script>    
+       
+        
+
+        <script type="text/javascript" src="scripts/Autolot.js"></script>
+        
+    </head>
+    <body class="ui-mobile-viewport ui-overlay-a">
+    
+            
+       <div id="page1" data-role="page" data-theme="a" class="ui-page ui-page-theme-a ui-page-footer-fixed ui-page-active">  
+           
+         <div data-role="header" data-theme="b"  data-position="fixed"> 
+             <div class="AutoLotTopHeader"></div>
+             
+         </div> 
+       
+         <div  class="ui-content">  
+            <div class="AutoLotHeader">Search US Bank AutoLot listings</div>  
+           
+            <div id="Autolot_Selections" class="ui-field-contain">
+             
+              
+               <div class="AutoLotLabel">Select Location</div>
+               <select name="AutoLot_Locations" id="AutoLot_Locations">              
+                  <option value="0" selected>All Locations</option>                            
+               </select>
+               <div class="AutoLotLabel">Select Makes</div>
+               <select name="AutoLot_Makes" id="AutoLot_Makes"  >              
+                  <option value="0" selected>All Makes</option>                            
+               </select>
+               <div class="AutoLotLabel" >Select Models</div>
+               <select name="AutoLot_Models" id="AutoLot_Models" >              
+                  <option value="0" selected>All Models</option>                            
+               </select>
+               <div class="AutoLotLabel"  >Select Max Price</div> 
+               <select name="AutoLot_MaxPrice" id="AutoLot_MaxPrice">              
+                  <option selected value="0">No Max Price</option>                            
+               </select>
+              
+            </div>   
+            
+        
+             <button id="AutolotSearchCmd" class="ui-btn ui-icon-search ui-btn-icon-left" >Search</button>
+                          
+         </div>     
+        <div data-role="footer" data-theme="b"  data-position="fixed">              
+            <span class="AutoLotCopyright">© 2014 U.S. Bancorp ~ All of us serving you ~ U.S. Bank Internal Information ~ All rights reserved ~ Terms of Use</span>
+        </div> 
+      </div>
+        
+              
+      <div id="AutoLotSearchResults" data-role="page" data-theme="a" class="ui-page ui-page-theme-a ui-page-footer-fixed">  
+         <div data-role="header" data-theme="b"> 
+             <div class="AutoLotTopHeader"></div>             
+         </div> 
+         
+         <div id="AutoLot_SortOptionsDiv">  
+             <div id="AutoLot_SortOptionsTitle">
+             <span>Sort Order :</span>     
+            </div>  
+            <select name="AutoLot_SortOptions" id="AutoLot_SortOptions" data-mini="true">              
+                  <option value="2_0">Sort by Make</option>   
+                  <option value="3_0">Sort by Model</option> 
+                  <option selected value="4_0">Sort by Year Lowest</option>   
+                  <option value="4_1">Sort by Year Highest</option> 
+                  <option value="5_0">Sort by Mileage Lowest</option>   
+                  <option value="5_1">Sort by Mileage Highest</option> 
+                  <option value="10_0">Sort by Price Lowest</option>   
+                  <option value="10_1">Sort by Price Highest</option> 
+                  
+            </select>                   
+         </div>
+         <button id="AutolotPrevCmd" class="ui-btn ui-mini ui-icon-arrow-l ui-btn-icon-left" >Previous</button> 
+         <div id="Autolot_Results" class="ui-field-contain">
+              <ul id="AutoLot_ResultList" data-role="listview" data-inset="true">
+                  
+              </ul>    
+         </div> 
+         <button id="AutolotNextCmd" class="ui-btn ui-mini ui-icon-arrow-r ui-btn-icon-right" >More Results</button> 
+         <button id="AutolotNewSearchCmd" class="ui-btn ui-mini ui-icon-search ui-btn-icon-left" >Search Again</button> 
+                     
+         <div data-role="footer" data-theme="b">              
+            <span class="AutoLotCopyright">© 2014 U.S. Bancorp ~ All of us serving you ~ U.S. Bank Internal Information ~ All rights reserved ~ Terms of Use</span>
+         </div> 
+          
+      </div> 
+        
+      <div id="AutoLotDetailInfoPage" data-role="page" data-theme="a" class="ui-page ui-page-theme-a ui-page-footer-fixed"> 
+         <div data-role="header" data-theme="b"> 
+             <div class="AutoLotTopHeader"></div>             
+         </div> 
+         <div id="AutoLotDetail_Info">
+            <div id="AutoLotDetail_header1" class="AutoLotHeader AutoLotDetail_header"><span id="AutoLotDetail_Year"></span><span id="AutoLotDetail_Make"></span><span id="AutoLotDetail_Model">Model</span></div> 
+            <div id="AutoLotDetail_header2" class="AutoLotDetail_header"><span id="AutoLotDetail_Price_Header" class="AutoLotDetail_headerPrice"></span><span id="AutoLotDetail_Mileage_Header" class="AutoLotDetail_headerMiles"></span></div>
+            <div id="AutoLotDetail_paymentcalc" class="AutoLotDetail_header">
+                   <img id="AutoLotDetail_CalcImage" alt="Payment calc" src="images/calculator-icon.png"/>
+                   <span class="AutoLotDetail_PaymentsTitle">Estimate Payments</span>
+                   <a href='#' class="ui-btn ui-btn-inline ui-icon-arrow-l ui-btn-icon-left"></a>
+                   <a href='#' class="ui-btn ui-btn-inline ui-icon-arrow-r ui-btn-icon-right ui-mini"></a>
+            </div>
+      
+            <img class="AutoLotDetail_Image" alt="" src=""/>
+            <div id="AutolotDetail_Data">
+                <div id="AutoLotDetail_ImageNumber"></div>
+
+                <div id="AutoLotDetail_Status"          class="AutoLotDetail_label">Status:<span class="AutoLotDetail_value"></span> </div>     
+                <div id="AutoLotDetail_Location"        class="AutoLotDetail_label">Location:<span class="AutoLotDetail_value"></span></div> 
+                <div id="AutoLotDetail_Transmission"    class="AutoLotDetail_label">Transmission:<span class="AutoLotDetail_value"></span></div>             
+                <div id="AutoLotDetail_EngineSize"      class="AutoLotDetail_label">Engine Size:<span class="AutoLotDetail_value"></span></div>           
+                <div id="AutoLotDetail_Mileage"         class="AutoLotDetail_label">Mileage:<span class="AutoLotDetail_value"></span></div> 
+                <div id="AutoLotDetail_Exterior_Color"  class="AutoLotDetail_label">Exterior Color:<span class="AutoLotDetail_value"></span></div> 
+                <div id="AutoLotDetail_Interior_Color"  class="AutoLotDetail_label">Interior Color:<span class="AutoLotDetail_value"></span></div> 
+                <div id="AutoLotDetail_Features"        class="AutoLotDetail_label">Vehicle Features:<span class="AutoLotDetail_value"></span></div> 
+                <div id="AutoLotDetail_Comments"        class="AutoLotDetail_label">Comments:<span class="AutoLotDetail_value"></span></div> 
+            </div>
+         </div>
+         
+          <div id="AutoLotDetail_Options" class="ui-controlgroup">
+            <button id="AutoLotDetail_PaymentCalc" class="ui-btn ui-icon-carat-r ui-btn-icon-right" >Payment Calculator</button>  
+            <button id="AutoLotDetail_BackToResults" class="ui-btn ui-icon-carat-r ui-btn-icon-right" >Return to my Results</button>  
+            <button  id="AutoLotDetail_NewSearchCmd"  class="ui-btn ui-icon-carat-r ui-btn-icon-right" >Search Again</button> 
+          </div>
+          
+         <div data-role="footer" data-theme="b"  data-position="fixed">              
+            <span class="AutoLotCopyright">© 2014 U.S. Bancorp ~ All of us serving you ~ U.S. Bank Internal Information ~ All rights reserved ~ Terms of Use</span>
+         </div> 
+      </div>    
+        
+      <div id="AutoLotWaitGraphic" class="AutoLot_centered">
+          <img alt="" src="images/wait.gif">
+      </div>
+        
+    </body>
+</html>

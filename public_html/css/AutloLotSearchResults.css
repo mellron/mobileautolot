@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 16, 2014, 2:09:05 PM
+    Author     : detolle
+*/
+.AutoLotListText
+{
+   font-size:11px;
+}
+
+.AutoLotListLabel
+{
+   font-size:12px;
+   font-weight: bold;
+   color:#0a0a64;
+   white-space: normal;
+}
+.AutoLotListImage
+{
+   margin-top:12px;
+   margin-left:6px;
+   height:60px; 
+}
+.AutoLotListItem
+{
+  padding-bottom:3px;  
+}
+
+#AutoLot_SortOptionsDiv
+{
+    float:right;
+    width:30%;   
+    min-width:315px;
+}
+
+#AutoLot_SortOptionsTitle
+{
+   float:left;
+   margin-top:14px;
+   margin-right:8px;
+   color:#0a0a64;
+   font-weight: 500;
+   font-size:15px;
+   display:none;
+}
+
+#AutolotNewSearchCmd
+{
+   
+}
+
+#AutolotPrevCmd
+{
+    margin-bottom:-10px;
+    display:none;
+}
+
+#AutolotNextCmd
+{
+    margin-top:-10px;
+    display:none;
+}
